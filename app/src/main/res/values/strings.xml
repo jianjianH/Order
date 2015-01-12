@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SQLite</string>
+    <string name="strAdd">新增</string>
+    <string name="strDelete">删除</string>
+    <string name="strUpdate">修改</string>
+
+    <string name="strQuery1">数据查询</string>
+    <string name="strQuery2">统计查询</string>
+    <string name="strQuery3">比较查询</string>
+</resources>
