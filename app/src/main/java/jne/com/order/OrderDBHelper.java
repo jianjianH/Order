@@ -20,7 +20,7 @@ public class OrderDBHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         // create table Orders(Id integer primary key, CustomName text, OrderPrice integer, Country text);
-        String sql = "CREATE TABLE " + TABLE_NAME + " (Id integer primary key, CustomName text, OrderPrice integer, Country text)";
+        String sql = "create table if not exists " + TABLE_NAME + " (Id integer primary key, CustomName text, OrderPrice integer, Country text)";
         sqLiteDatabase.execSQL(sql);
     }
 

@@ -29,6 +29,39 @@ public class OrderDao {
     }
 
     /**
+     * 判断表中是否有数据
+     */
+    public boolean isDataExist(){
+        int count = 0;
+
+        SQLiteDatabase db = null;
+        Cursor cursor = null;
+
+        try {
+            db = ordersDBHelper.getReadableDatabase();
+            // select count(Id) from Orders
+            cursor = db.query(OrderDBHelper.TABLE_NAME, new String[]{"COUNT(Id)"}, null, null, null, null, null);
+
+            if (cursor.moveToFirst()) {
+                count = cursor.getInt(0);
+            }
+            if (count > 0) return true;
+        }
+        catch (Exception e) {
+            Log.e(TAG, "", e);
+        }
+        finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return false;
+    }
+
+    /**
      * 初始化数据
      */
     public void initTable(){

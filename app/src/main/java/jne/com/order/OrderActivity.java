@@ -27,7 +27,9 @@ public class OrderActivity extends Activity {
         setContentView(R.layout.activity_order);
 
         ordersDao = new OrderDao(this);
-        ordersDao.initTable();
+        if (! ordersDao.isDataExist()){
+            ordersDao.initTable();
+        }
 
         initComponent();
 
