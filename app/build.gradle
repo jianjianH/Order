@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "jne.com.order"
-        minSdkVersion 15
+        minSdkVersion 10
         targetSdkVersion 21
         versionCode 1
         versionName "0.1"

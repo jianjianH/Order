@@ -71,12 +71,12 @@ public class OrderDao {
             db = ordersDBHelper.getWritableDatabase();
             db.beginTransaction();
 
-            db.execSQL("insert into " + OrderDBHelper.TABLE_NAME + " (Id, CustomName, OrderPrice, Country) values(1, 'Arc', 100, 'China')");
-            db.execSQL("insert into " + OrderDBHelper.TABLE_NAME + " (Id, CustomName, OrderPrice, Country) values(2, 'Bor', 200, 'USA')");
-            db.execSQL("insert into " + OrderDBHelper.TABLE_NAME + " (Id, CustomName, OrderPrice, Country) values(3, 'Cut', 500, 'Japan')");
-            db.execSQL("insert into " + OrderDBHelper.TABLE_NAME + " (Id, CustomName, OrderPrice, Country) values(4, 'Bor', 300, 'USA')");
-            db.execSQL("insert into " + OrderDBHelper.TABLE_NAME + " (Id, CustomName, OrderPrice, Country) values(5, 'Arc', 600, 'China')");
-            db.execSQL("insert into " + OrderDBHelper.TABLE_NAME + " (Id, CustomName, OrderPrice, Country) values(6, 'Doom', 200, 'China')");
+            db.execSQL("insert into " + OrderDBHelper.TABLE_NAME + " (Id, CustomName, OrderPrice, Country) values (1, 'Arc', 100, 'China')");
+            db.execSQL("insert into " + OrderDBHelper.TABLE_NAME + " (Id, CustomName, OrderPrice, Country) values (2, 'Bor', 200, 'USA')");
+            db.execSQL("insert into " + OrderDBHelper.TABLE_NAME + " (Id, CustomName, OrderPrice, Country) values (3, 'Cut', 500, 'Japan')");
+            db.execSQL("insert into " + OrderDBHelper.TABLE_NAME + " (Id, CustomName, OrderPrice, Country) values (4, 'Bor', 300, 'USA')");
+            db.execSQL("insert into " + OrderDBHelper.TABLE_NAME + " (Id, CustomName, OrderPrice, Country) values (5, 'Arc', 600, 'China')");
+            db.execSQL("insert into " + OrderDBHelper.TABLE_NAME + " (Id, CustomName, OrderPrice, Country) values (6, 'Doom', 200, 'China')");
 
             db.setTransactionSuccessful();
         }catch (Exception e){
@@ -85,6 +85,30 @@ public class OrderDao {
             if (db != null) {
                 db.endTransaction();
             }
+            if (db != null) {
+                db.close();
+            }
+        }
+    }
+
+    /**
+     * 执行自定义SQL语句
+     */
+    public void execSQL(String sql) {
+        SQLiteDatabase db = null;
+
+        try {
+            if (sql.contains("select")){
+                Toast.makeText(context, R.string.strUnableSql, Toast.LENGTH_SHORT).show();
+            }else if (sql.contains("insert") || sql.contains("update") || sql.contains("delete")){
+                db = ordersDBHelper.getWritableDatabase();
+                db.execSQL(sql);
+                Toast.makeText(context, R.string.strSuccessSql, Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception e) {
+            Toast.makeText(context, R.string.strErrorSql, Toast.LENGTH_SHORT).show();
+            Log.e(TAG, "", e);
+        } finally {
             if (db != null) {
                 db.close();
             }

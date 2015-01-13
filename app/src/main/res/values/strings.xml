@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SQLite</string>
+    <string name="strExecute">执行SQL</string>
     <string name="strAdd">新增</string>
     <string name="strDelete">删除</string>
     <string name="strUpdate">修改</string>
-
     <string name="strQuery1">数据查询</string>
     <string name="strQuery2">统计查询</string>
     <string name="strQuery3">比较查询</string>
+    <string name="strInputSqlHint">update Orders set OrderPrice = 100 where Id = 6</string>
+    <string name="strInputSql">请输入SQL语句</string>
+    <string name="strErrorSql">执行出错，请检查SQL语句</string>
+    <string name="strSuccessSql">执行SQL语句成功</string>
+    <string name="strUnableSql">Sorry，还没处理select语句</string>
 </resources>

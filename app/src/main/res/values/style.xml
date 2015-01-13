@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="GreenBtnTheme" tools:targetApi="11" parent="@android:style/Widget.Holo.Light.Button">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/common_button_green</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/common_color</item>
+    </style>
+
+    <style name="GrayBtnTheme" tools:targetApi="11" parent="@android:style/Widget.Holo.Light.Button">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/common_button_gray</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/gray_color</item>
+    </style>
+
+    <style name="EditTextTheme" tools:targetApi="11" parent="@android:style/Widget.Holo.Light.EditText">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/ab_edit_text_holo_light</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/edittext_color</item>
+        <item name="android:textColorHint">@color/edittext_hint_color</item>
+    </style>
+</resources>

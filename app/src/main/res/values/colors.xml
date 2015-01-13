@@ -2,4 +2,8 @@
 <resources>
     <color name="common_color">#ffffff</color>
     <color name="common_pressed">#f5f2eb</color>
+    <color name="gray_color">#878278</color>
+    <color name="hover_gray_color">#dadada</color>
+    <color name="edittext_color">#625e59</color>
+    <color name="edittext_hint_color">#ababab</color>
 </resources>
