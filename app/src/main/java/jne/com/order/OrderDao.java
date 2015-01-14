@@ -84,8 +84,6 @@ public class OrderDao {
         }finally {
             if (db != null) {
                 db.endTransaction();
-            }
-            if (db != null) {
                 db.close();
             }
         }
@@ -102,7 +100,9 @@ public class OrderDao {
                 Toast.makeText(context, R.string.strUnableSql, Toast.LENGTH_SHORT).show();
             }else if (sql.contains("insert") || sql.contains("update") || sql.contains("delete")){
                 db = ordersDBHelper.getWritableDatabase();
+                db.beginTransaction();
                 db.execSQL(sql);
+                db.setTransactionSuccessful();
                 Toast.makeText(context, R.string.strSuccessSql, Toast.LENGTH_SHORT).show();
             }
         } catch (Exception e) {
@@ -110,6 +110,7 @@ public class OrderDao {
             Log.e(TAG, "", e);
         } finally {
             if (db != null) {
+                db.endTransaction();
                 db.close();
             }
         }
@@ -177,8 +178,6 @@ public class OrderDao {
         }finally {
             if (db != null) {
                 db.endTransaction();
-            }
-            if (db != null) {
                 db.close();
             }
         }
@@ -217,6 +216,7 @@ public class OrderDao {
         SQLiteDatabase db = null;
         try {
             db = ordersDBHelper.getWritableDatabase();
+            db.beginTransaction();
 
             // update Orders set OrderPrice = 800 where Id = 6
             ContentValues cv = new ContentValues();
@@ -225,6 +225,7 @@ public class OrderDao {
                     cv,
                     "Id = ?",
                     new String[]{String.valueOf(6)});
+            db.setTransactionSuccessful();
             return true;
         }
         catch (Exception e) {
@@ -232,6 +233,7 @@ public class OrderDao {
         }
         finally {
             if (db != null) {
+                db.endTransaction();
                 db.close();
             }
         }
@@ -331,8 +333,7 @@ public class OrderDao {
 
             if (cursor.getCount() > 0){
                 if (cursor.moveToFirst()) {
-                    Order order = parseOrder(cursor);
-                    return order;
+                    return parseOrder(cursor);
                 }
             }
         }
